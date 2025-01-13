@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="container">
+        <div id="top">
+            <span style="font-size: xx-large;">Data importation</span><br>
+            <span style="font-size: x-large;">n = <span id="ncounter">0</span> </span>
+        </div>
+        <div id="button">
+            <button onclick="proceed_event()">Proceed (<span id="current_section_counter">0</span>/<span id="section_counter">0</span>)</button>
+        </div>
+        <div id="numbers"></div>
+        <div id="section_mean"></div>
+        <div id="dividers"></div>
+    </div>
+
+    <script src="lib/anime.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
