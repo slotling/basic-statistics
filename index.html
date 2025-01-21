@@ -3,21 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Số liệu</title>
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
     <div id="container">
         <div id="top">
-            <span style="font-size: xx-large;">Data importation</span><br>
-            <span style="font-size: x-large;">n = <span id="ncounter">0</span> </span>
+            <span style="font-size: xx-large;">Nhập dữ liệu</span><br>
+            <span style="font-size: x-large;">Cân nặng của <span id="ncounter">0</span> học sinh khối 9-10</span>
         </div>
+
         <div id="button">
-            <button onclick="proceed_event()">Proceed (<span id="current_section_counter">0</span>/<span id="section_counter">0</span>)</button>
+            <button onclick="proceed_event()">Tiếp (<span id="current_section_counter">0</span>/<span id="section_counter">0</span>)</button>
         </div>
-        <div id="numbers"></div>
-        <div id="section_mean"></div>
-        <div id="dividers"></div>
+
+        <div id="numbers">
+        </div>
+
+        <div id="section_mean">
+            <span style="font-size: x-large" id="result_mean_1" class="element">
+                =<span id="result_mean_1_number">??</span>
+            </span>
+            <span style="font-size: x-large" id="result_mean_2" class="element">
+                <span id="result_mean_1_number">??</span>÷<span id="ncounter">0</span>=<span id="result_mean_2_number">??</span>
+            </span>
+        </div>
+
+        <div id="section_range">
+            <span style="font-size: x-large; width: fit-content;" id="result_range" class="element">
+
+            </span>
+        </div>
+
+        <div id="section_iqr">
+            <span style="font-size: x-large; width: fit-content;" id="result_iqr" class="element">
+                
+            </span>
+        </div>
+
+        <div id="section_var">
+            <span style="font-size: x-large" id="result_var_1" class="element">
+                =<span id="result_var_1_number">??</span>
+            </span>
+            <span style="font-size: x-large" id="result_var_2" class="element">
+                <span id="result_var_1_number">??</span>÷<span id="ncounter">0</span>=<span id="result_var_2_number">??</span>
+            </span>
+            <span style="font-size: x-large" id="result_stddev" class="element">
+                √<span id="result_var_2_number">??</span>=<span id="result_stddev_number">??</span>
+            </span>
+        </div>
+
+        <div id="dividers">
+            <div class="element" id="median"></div>
+            <div class="element" id="lq"></div>
+            <div class="element" id="uq"></div>
+        </div>
+
+        <div id="outlier">
+            <div class="element" id="iqr_box"></div>
+            <div class="element" id="horizontal_left"></div>
+            <div class="element" id="divider_left"></div>
+            <div class="element" id="horizontal_right"></div>
+            <div class="element" id="divider_right"></div>
+        </div>
     </div>
 
     <script src="lib/anime.min.js"></script>

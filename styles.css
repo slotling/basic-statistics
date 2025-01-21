@@ -79,8 +79,26 @@ body {
     background-color: rgb(34, 34, 41);
 }
 
+#button > button:disabled {
+    color: rgb(121, 121, 121);
+}
+
 #dividers > .element {
     background-color: rgba(255, 255, 255, 0.404);
-    width: 1px;
+    width: 2px;
     height: 200px;
+}
+
+#outlier > .element {
+    background-color: rgba(255, 255, 255, 0.185);
+}
+
+#iqr_box,  #divider_left, #divider_right{
+    width: 2px;
+    height: 200px;
+}
+
+#horizontal_right, #horizontal_left {
+    width: 2px;
+    height: 2px;
 }
