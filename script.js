@@ -862,7 +862,7 @@ setTimeout(() => {
 
 // events
 let section = 0;
-const maxsections = 21;
+const maxsections = 25;
 
 const debug = false;
 function proceed_event(e) {
@@ -876,13 +876,16 @@ function proceed_event(e) {
             change_title("Sắp xếp", `n = <span id="ncounter">${N}</span>`);
             section_general();
             break;
-            
+
         case 2:
             change_title("Trung bình");
-            section_mean();
             break;
             
         case 3:
+            section_mean();
+            break;
+            
+        case 4:
             section_mean_finish();
             setTimeout(() => {
                 section_general();
@@ -890,7 +893,7 @@ function proceed_event(e) {
             }, 500);
             break;
         
-        case 4:
+        case 5:
             change_title("Trung vị");
             section_mean_2_finish();
             setTimeout(() => {
@@ -899,68 +902,73 @@ function proceed_event(e) {
             cooldown = 3500;
             break;
         
-        case 5:
+        case 6:
             section_general_dividers();
             section_median();
             cooldown = 5000;
             break;
 
-        case 6:
+        case 7:
             change_title("Tứ phân vị");
-            section_general_dividers(second=true);
             break;
         
-        case 7:
+        case 8:
+            section_general_dividers(second=true);
             section_quartile();
             break;
 
-        case 8:
+        case 9:
             section_general_dividers_clear();
             section_general_index_clear();
-            section_general_alt(begin=true);
+            section_general();
             change_title("Mốt");
             break;
 
-        case 9:
+        case 10:
+            section_general_alt(begin=true);
+            break;
+
+        case 11:
             section_mode();
             break;
 
-        case 10:
+        case 12:
             change_title("Khoảng biến thiên");
             section_general();
             section_general_value_clear();
             break;
 
-        case 11:
+        case 13:
             section_range();
+            cooldown = 2000;
             break;
-
-        case 12:
+        
+        case 14:
+            section_range_finish();
             section_general();
             change_title("Khoảng tứ phân vị");
-            section_range_finish();
-
-            setTimeout(() => {
-                section_iqr();
-            }, 1000);
-            cooldown = 3000;
             break;
 
-        case 13:
+        case 15:
+            section_iqr();
+            cooldown = 2000;
+            break;
+
+        case 16:
             change_title("Phương sai", `x̄ = ${Math.round(STATS["mean"]*100)/100}`);
             section_iqr_finish();
             section_general();
             break;
 
-        case 14:
+        case 17:
             section_variance();
             break;
 
-        case 15:
+        case 18:
             section_mean(false);
             break;
 
-        case 16:
+        case 19:
             section_mean_finish(false);
             setTimeout(() => {
                 section_general();
@@ -968,27 +976,30 @@ function proceed_event(e) {
             }, 500);
             break;
         
-        case 17:    
+        case 20:    
             change_title("Độ lệch chuẩn");
             section_mean_2_finish(false);
+            break;
+        
+        case 21:
             section_stddev();
             break;
-
-        case 18:
+        
+        case 22:
             change_title("Số liệu bất thường", " ");
             section_stddev_finish();
             section_general_alt(begin=true);
             break;
 
-        case 19:
+        case 23:
             section_outlier();
             break;
 
-        case 20:
+        case 24:
             section_outlier_2();
             break;
 
-        case 21:
+        case 25:
             section_outlier_finish();
             section_general_value_clear();
             section_general();
