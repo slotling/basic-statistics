@@ -864,21 +864,12 @@ setTimeout(() => {
 let section = 0;
 const maxsections = 21;
 
-const debug = true;
+const debug = false;
 function proceed_event(e) {
-    if (section >= maxsections) {
-        return;
-    }
-
     section += 1;
     document.querySelector("#current_section_counter").innerHTML = section;
 
-    if (!debug) {
-        document.querySelector("button").disabled = true;
-        setTimeout(() => {
-            document.querySelector("button").disabled = false;
-        }, 1000);
-    }
+    let cooldown = 1000;
 
     switch (section) {
         case 1:
@@ -905,11 +896,13 @@ function proceed_event(e) {
             setTimeout(() => {
                 section_general_index();
             }, 500);
+            cooldown = 3500;
             break;
         
         case 5:
             section_general_dividers();
             section_median();
+            cooldown = 5000;
             break;
 
         case 6:
@@ -1008,6 +1001,16 @@ function proceed_event(e) {
 
         default:
             break;
+    }
+
+    if (!debug) {
+        document.querySelector("button").disabled = true;
+        if (section >= maxsections) {
+            return;
+        }
+        setTimeout(() => {
+            document.querySelector("button").disabled = false;
+        }, cooldown);
     }
 }
 
