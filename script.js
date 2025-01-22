@@ -943,6 +943,7 @@ function proceed_event(e) {
             setTimeout(() => {
                 section_iqr();
             }, 1000);
+            cooldown = 3000;
             break;
 
         case 13:
